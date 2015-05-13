@@ -1,0 +1,83 @@
+.jauploader-body {
+  border: 1px solid #cccccc;
+  padding: 6px;
+}
+.jauploader-progressbar {
+  height: 4px;
+  background-color: red;
+  width: 0;
+}
+.jauploader-dropzone {
+  height: 4em;
+  background-color: white;
+  color: #cccccc;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-bottom: 6px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+.jauploader-dropzone.hover {
+  background-color: red;
+}
+.jauploader-dropzone.active {
+  background: #c00000;
+}
+.jauploader-dropzone_text {
+  display: inline-block;
+  vertical-align: middle;
+}
+.jauploader-dropzone_text-helper {
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+  width: 0px;
+}
+.jauploader-button {
+  border: 1px outset gray;
+  padding: 0.1em 0.8em;
+  font-family: Tahoma, sans-serif;
+  cursor: default;
+  margin: 0 0.1em;
+}
+.jauploader-button:active {
+  border: 1px inset gray;
+}
+.jauploader-footer {
+  display: block;
+  text-align: right;
+}
+.jauploader-files .jauploader-file {
+  position: relative;
+  padding: 6px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: 1px solid #cccccc;
+}
+.jauploader-files .jauploader-file.jauploader-file-uploaded {
+  border-left: 4px solid green;
+}
+.jauploader-files .jauploader-file.jauploader-file-uploading {
+  border-left: 4px solid yellow;
+}
+.jauploader-files .jauploader-file.jauploader-file-error {
+  border-left: 4px solid red;
+}
+.jauploader-files .jauploader-file .jauploader-file-close {
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  margin-top: -12px;
+  width: 24px;
+  height: 24px;
+  background: no-repeat red;
+}
+.jauploader-files .jauploader-file .jauploader-file-thumb {
+  width: 40px;
+  height: 30px;
+  vertical-align: middle;
+}
+.jauploader-files .jauploader-file .jauploader-file-name {
+  vertical-align: middle;
+}

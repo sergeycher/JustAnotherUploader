@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Tests</title>
+    <link rel="stylesheet" href="../bower_components/qunit/qunit/qunit.css">
+    <script src="../bower_components/qunit/qunit/qunit.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../build/JAU.js"></script>
+    <link rel="stylesheet" href="../build/JAU.css">
+</head>
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <input type="file" id="uploader" multiple name="files">
+    <input type="file" id="uploader-en" multiple name="files">
+    <script>
+    var uploader = new JAUploader($('#uploader')[0], {
+        additionalData: {
+            target: 'test'
+        }
+    });
+
+    var uploaderEn = new JAUploader($('#uploader-en')[0], {
+        locale: 'en'
+    });
+
+    QUnit.assert.elemExists = function(selector, message) {
+        this.push($(selector).length > 0, $(selector).length, ' > 0', message);
+    };
+
+    QUnit.test("DOM tests", function(assert) {
+        assert.elemExists("#uploader", "Uploader element enabled");
+        assert.equal(typeof(uploader), 'object', "JAU created");
+
+        assert.elemExists('.jauploader-body', "JAU body created");
+        assert.elemExists(".jauploader-body input[type=file]", "JAU wrap created");
+        assert.elemExists(".jauploader-body label input[type=file]", "File uploader label created");
+        assert.elemExists(".jauploader-body label span.jauploader-button", "Uploader button created");
+        assert.elemExists(".jauploader-body .jauploader-progressbar", "Uploader progressbar created");
+
+        assert.elemExists(".jauploader-body .jauploader-dropzone", "Uploader dropzone created");
+    });
+
+    QUnit.test("Features tests", function(assert) {
+        assert.equal(typeof(uploader), 'object', "JAU created");
+
+        var files = uploader.input.files;
+        if (files.length > 0) {
+            uploader.addFiles(files);
+
+            assert.equal(uploader.files.length, files.length, files.length + " JAU file(s) added");
+            assert.equal($('.jauploader-body .jauploader-file').length, files.length, files.length + " JAU file(s) rendered");
+
+            uploader.removeFile(uploader.files[0]);
+            assert.equal(uploader.files.length, files.length - 1, "1 file removed");
+
+            uploader.reset();
+            assert.equal(uploader.files.length, 0, "All files removed");
+            assert.equal($('.jauploader-body .jauploader-file').length, 0, "All files DOM removed");
+
+            uploader.addFiles(files);
+        } else {
+            console.log("Please add some files with browse button and reload page");
+        }
+    });
+
+    if (!uploader.autoupload) {
+        QUnit.test("Button test", function(assert) {
+            assert.expect(1);
+
+            var origUpload = uploader.upload;
+            uploader.upload = function() {
+                assert.ok(true, "Upload button worked propertly");
+            }
+            $(".jauploader-body .jauploader-button").click();
+
+            uploader.upload = origUpload;
+        });
+    }
+    </script>
+</body>
+
+</html>

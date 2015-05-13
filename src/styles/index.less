@@ -1,0 +1,95 @@
+.jauploader-body {
+    border: 1px solid #cccccc;
+    padding: 6px;
+}
+
+.jauploader-progressbar {
+    height: 4px;
+    background-color: red;
+    width: 0;
+}
+
+.jauploader-dropzone {
+    height: 4em;
+    background-color: white;
+    color: #cccccc;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-bottom: 6px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    vertical-align: middle;
+    &.hover {
+        background-color: red;
+    }
+    &.active {
+        background: #c00000;
+    }
+}
+
+.jauploader-dropzone_text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.jauploader-dropzone_text-helper {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    width: 0px;
+}
+
+.jauploader-button {
+    border: 1px outset gray;
+    padding: 0.1em 0.8em;
+    font-family: Tahoma, sans-serif;
+    cursor: default;
+    margin: 0 0.1em;
+    &:active {
+        border: 1px inset gray;
+    }
+}
+
+.jauploader-footer {
+    display: block;
+    text-align: right;
+}
+
+.jauploader-files {
+    .jauploader-file {
+        position: relative;
+        padding: 6px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        border: 1px solid #cccccc;
+        @thumb-width: 40px;
+        @thumb-height: 30px;
+        &.jauploader-file-uploaded {
+            border-left: 4px solid green;
+        }
+        &.jauploader-file-uploading {
+            border-left: 4px solid yellow;
+        }
+        &.jauploader-file-error {
+            border-left: 4px solid red;
+        }
+        .jauploader-file-close {
+            @size: 24px;
+            position: absolute;
+            right: 2px;
+            top: 50%;
+            margin-top: -@size / 2;
+            width: @size;
+            height: @size;
+            background: no-repeat red;
+        }
+        .jauploader-file-thumb {
+            width: @thumb-width;
+            height: @thumb-height;
+            vertical-align: middle;
+        }
+        .jauploader-file-name {
+            vertical-align: middle;
+        }
+    }
+}
