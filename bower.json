@@ -1,0 +1,22 @@
+{
+  "name": "justAnotherUploader",
+  "version": "0.0.1",
+  "homepage": "https://github.com/sergeycher/JustAnotherUploader",
+  "authors": [
+    "sergeycher <sergeycher@yandex.ru>"
+  ],
+  "description": "Just another javascript files uploader",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "qunit": "~1.18.0"
+  }
+}
