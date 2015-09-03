@@ -23,6 +23,9 @@ More localizations can be added in src/localization.js
 ### options.autoupload
 It's true by default. Set to false if you want to see "Upload" button.
 
+### options.target
+Target where send your files. Empty by default.
+
 ## API
 
 ### onUploadComplete(event, xhr)
